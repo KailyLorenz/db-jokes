@@ -1,0 +1,18 @@
+<!--<div mat-dialog-content>-->
+<mat-card>
+  <mat-card-title>Joke is number {{ joke.id }}</mat-card-title>
+  <mat-card-content>
+    Description: {{ joke.delivery ? joke.delivery : joke.joke }}
+  </mat-card-content>
+  <mat-card-subtitle> List of similar jokes </mat-card-subtitle>
+  <div>
+    <mat-list role="list">
+      <mat-list-item role="listitem" *ngFor="let joke of similarJokes"
+        >Joke is number {{ joke.id }}</mat-list-item
+      >
+    </mat-list>
+  </div>
+</mat-card>
+<div mat-dialog-actions>
+  <button mat-button mat-dialog-close>Close</button>
+</div>

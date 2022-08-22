@@ -1,0 +1,50 @@
+<mat-card id="login">
+  <mat-card-title>LOGIN</mat-card-title>
+  <form class="card" [formGroup]="form" (ngSubmit)="submit()">
+    <mat-form-field appearance="fill">
+      <mat-label>Enter your email</mat-label>
+      <input
+        matInput
+        placeholder="pat@example.com"
+        formControlName="email"
+        required
+      />
+      <mat-error
+        *ngIf="form.get('email')?.touched && form.get('email')?.invalid"
+      >
+        {{ getErrorMessageEmail() }}
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Enter your password</mat-label>
+      <input
+        matInput
+        [type]="hide ? 'password' : 'text'"
+        formControlName="password"
+        required
+      />
+      <button
+        mat-icon-button
+        matSuffix
+        (click)="hide = !hide"
+        [attr.aria-label]="'Hide password'"
+        [attr.aria-pressed]="hide"
+      >
+        <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
+      </button>
+      <mat-error
+        *ngIf="form.get('password')?.touched && form.get('password')?.invalid"
+      >
+        {{ getErrorMessagePassword() }}
+      </mat-error>
+    </mat-form-field>
+    <button
+      mat-raised-button
+      type="submit"
+      class="btn btn-primary"
+      [disabled]="form.invalid || submitted"
+    >
+      SIGN IN
+    </button>
+  </form>
+</mat-card>

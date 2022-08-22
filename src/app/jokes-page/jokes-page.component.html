@@ -1,0 +1,13 @@
+<mat-grid-list cols="4" rowHeight="2:1">
+  <mat-grid-tile *ngFor="let joke of jokesData">
+    <mat-card>
+      <mat-card-title>Number {{ joke.id }}</mat-card-title>
+      <mat-card-content>Category {{ joke.category }}</mat-card-content>
+      <mat-card-actions>
+        <button mat-button mat-raised-button (click)="openJoke(joke)">
+          Open joke
+        </button>
+      </mat-card-actions>
+    </mat-card>
+  </mat-grid-tile>
+</mat-grid-list>
